@@ -20,3 +20,15 @@ diff -Naur a/data/io.github.seadve.Mousai.metainfo.xml.in.in b/data/io.github.se
    <metadata_license>CC0-1.0</metadata_license>
    <project_license>GPL-3.0-or-later</project_license>
    <name>Mousai</name>
+diff -Naur a/meson.build b/meson.build
+--- a/meson.build	2023-06-13 14:34:41.112618299 +0530
++++ b/meson.build	2023-06-13 14:35:06.504308303 +0530
+@@ -21,7 +21,7 @@
+ dependency('gstreamer-play-1.0', version: '>= 1.20')
+ dependency('libsoup-3.0', version: '>= 3.0')
+ dependency('libpulse-mainloop-glib', version: '>= 16.0')
+-dependency('libpulse', version: '>= 16.0')
++dependency('libpulse', version: '>= 15.99')
+ 
+ glib_compile_resources = find_program('glib-compile-resources', required: true)
+ glib_compile_schemas = find_program('glib-compile-schemas', required: true)
