@@ -1,0 +1,22 @@
+diff -Naur a/data/io.github.seadve.Mousai.desktop.in.in b/data/io.github.seadve.Mousai.desktop.in.in
+--- a/data/io.github.seadve.Mousai.desktop.in.in	2023-06-13 14:03:34.244084749 +0530
++++ b/data/io.github.seadve.Mousai.desktop.in.in	2023-06-13 14:04:26.567373531 +0530
+@@ -7,6 +7,6 @@
+ Categories=GNOME;GTK;Utility;
+ # Translators: These are search terms to find this application. Do NOT translate or localize the semicolons. The list MUST also end with a semicolon.
+ Keywords=Shazam;Audio;Music;Song;Recognize;Identify;Recognition;
+-Icon=@icon@
++Icon=snap.mousai.@icon@
+ StartupNotify=true
+ X-Purism-FormFactor=Workstation;Mobile;
+diff -Naur a/data/io.github.seadve.Mousai.metainfo.xml.in.in b/data/io.github.seadve.Mousai.metainfo.xml.in.in
+--- a/data/io.github.seadve.Mousai.metainfo.xml.in.in	2023-06-13 14:03:10.492410195 +0530
++++ b/data/io.github.seadve.Mousai.metainfo.xml.in.in	2023-06-13 14:04:56.934964116 +0530
+@@ -1,6 +1,7 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <component type="desktop-application">
+   <id>@app-id@</id>
++  <icon type="stock">snap.mousai.@app-id@</icon>
+   <metadata_license>CC0-1.0</metadata_license>
+   <project_license>GPL-3.0-or-later</project_license>
+   <name>Mousai</name>
