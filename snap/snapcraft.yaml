@@ -54,6 +54,7 @@ parts:
       
       
   deps:
+    after: [ mousai ]
     plugin: nil
     stage-packages:
       - libgstreamer-plugins-bad1.0-0
@@ -87,3 +88,15 @@ parts:
       - usr/lib/$CRAFT_ARCH_TRIPLET/libgstwayland-1.0.so.0.2001.0
       - usr/lib/$CRAFT_ARCH_TRIPLET/libgstwebrtc-1.0.so.0
       - usr/lib/$CRAFT_ARCH_TRIPLET/libgstwebrtc-1.0.so.0.2001.0
+      
+apps:
+  mousai:
+    command: usr/bin/mousai
+    extensions: [ gnome ]
+    common-id: io.github.seadve.Mousai
+    plugs:
+      - home
+      - network
+      - network-bind
+      - network-status
+      - audio-playback
