@@ -89,6 +89,12 @@ parts:
       - usr/lib/$CRAFT_ARCH_TRIPLET/libgstwebrtc-1.0.so.0
       - usr/lib/$CRAFT_ARCH_TRIPLET/libgstwebrtc-1.0.so.0.2003.0
       
+
+slots:
+  mousai:
+    interface: dbus
+    bus: session
+    name: io.github.seadve.Mousai
 apps:
   mousai:
     command: usr/bin/mousai
