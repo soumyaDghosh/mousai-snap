@@ -60,7 +60,7 @@ parts:
       - libgstreamer-plugins-bad1.0-0
     prime:
       - usr/lib/$CRAFT_ARCH_TRIPLET/libgstadaptivedemux-1.0.so.0
-      - usr/lib/$CRAFT_ARCH_TRIPLET/libgstadaptivedemux-1.0.so.0.2001.0
+      #- usr/lib/$CRAFT_ARCH_TRIPLET/libgstadaptivedemux-1.0.so.0.2001.0
       - usr/lib/$CRAFT_ARCH_TRIPLET/libgstbadaudio-1.0.so.0
       - usr/lib/$CRAFT_ARCH_TRIPLET/libgstbadaudio-1.0.so.0.2001.0
       - usr/lib/$CRAFT_ARCH_TRIPLET/libgstcodecparsers-1.0.so.0
