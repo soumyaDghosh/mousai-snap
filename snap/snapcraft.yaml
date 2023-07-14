@@ -4,6 +4,11 @@ adopt-info: mousai
 grade: stable # must be 'stable' to release into candidate/stable channels
 confinement: strict # use 'strict' once you have the right plugs and slots
 
+architectures:
+  - build-on: amd64
+  - build-on: arm64
+  - build-on: armhf
+
 parts:
   rustup:
     plugin: nil
@@ -29,6 +34,7 @@ parts:
     plugin: meson
     source: https://github.com/SeaDve/Mousai.git
     source-tag: 'v0.7.5'
+    source-depth: 1
     build-environment:
       - RUSTUP_HOME: $CRAFT_STAGE/usr/share/rust
       - CARGO_HOME: $CRAFT_STAGE/usr/share/rust
@@ -50,44 +56,9 @@ parts:
       - libgstreamer-plugins-bad1.0-dev
     organize:
       snap/mousai/current: .
-    parse-info: [ usr/share/metainfo/io.github.seadve.Mousai.metainfo.xml ]
-
-
-  deps:
-    after: [ mousai ]
-    plugin: nil
-    stage-packages:
-      - libgstreamer-plugins-bad1.0-0
     prime:
-      - usr/lib/$CRAFT_ARCH_TRIPLET/libgstadaptivedemux-1.0.so.0
-      - usr/lib/$CRAFT_ARCH_TRIPLET/libgstadaptivedemux-1.0.so.0.2003.0
-      - usr/lib/$CRAFT_ARCH_TRIPLET/libgstbadaudio-1.0.so.0
-      - usr/lib/$CRAFT_ARCH_TRIPLET/libgstbadaudio-1.0.so.0.2003.0
-      - usr/lib/$CRAFT_ARCH_TRIPLET/libgstcodecparsers-1.0.so.0
-      - usr/lib/$CRAFT_ARCH_TRIPLET/libgstcodecparsers-1.0.so.0.2003.0
-      - usr/lib/$CRAFT_ARCH_TRIPLET/libgstcodecs-1.0.so.0
-      - usr/lib/$CRAFT_ARCH_TRIPLET/libgstcodecs-1.0.so.0.2003.0
-      - usr/lib/$CRAFT_ARCH_TRIPLET/libgstinsertbin-1.0.so.0
-      - usr/lib/$CRAFT_ARCH_TRIPLET/libgstinsertbin-1.0.so.0.2003.0
-      - usr/lib/$CRAFT_ARCH_TRIPLET/libgstisoff-1.0.so.0
-      - usr/lib/$CRAFT_ARCH_TRIPLET/libgstisoff-1.0.so.0.2003.0
-      - usr/lib/$CRAFT_ARCH_TRIPLET/libgstmpegts-1.0.so.0
-      - usr/lib/$CRAFT_ARCH_TRIPLET/libgstmpegts-1.0.so.0.2003.0
-      - usr/lib/$CRAFT_ARCH_TRIPLET/libgstplay-1.0.so.0
-      - usr/lib/$CRAFT_ARCH_TRIPLET/libgstplay-1.0.so.0.2003.0
-      - usr/lib/$CRAFT_ARCH_TRIPLET/libgstplayer-1.0.so.0
-      - usr/lib/$CRAFT_ARCH_TRIPLET/libgstplayer-1.0.so.0.2003.0
-      - usr/lib/$CRAFT_ARCH_TRIPLET/libgstsctp-1.0.so.0
-      - usr/lib/$CRAFT_ARCH_TRIPLET/libgstsctp-1.0.so.0.2003.0
-      - usr/lib/$CRAFT_ARCH_TRIPLET/libgsttranscoder-1.0.so.0
-      - usr/lib/$CRAFT_ARCH_TRIPLET/libgsturidownloader-1.0.so.0
-      - usr/lib/$CRAFT_ARCH_TRIPLET/libgsturidownloader-1.0.so.0.2003.0
-      - usr/lib/$CRAFT_ARCH_TRIPLET/libgstva-1.0.so.0
-      - usr/lib/$CRAFT_ARCH_TRIPLET/libgstva-1.0.so.0.2003.0
-      - usr/lib/$CRAFT_ARCH_TRIPLET/libgstwayland-1.0.so.0
-      - usr/lib/$CRAFT_ARCH_TRIPLET/libgstwayland-1.0.so.0.2003.0
-      - usr/lib/$CRAFT_ARCH_TRIPLET/libgstwebrtc-1.0.so.0
-      - usr/lib/$CRAFT_ARCH_TRIPLET/libgstwebrtc-1.0.so.0.2003.0
+      - -snap/mousai
+    parse-info: [ usr/share/metainfo/io.github.seadve.Mousai.metainfo.xml ]
 
 
 slots:
