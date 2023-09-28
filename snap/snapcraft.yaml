@@ -1,8 +1,12 @@
-name: mousai # you probably want to 'snapcraft register <name>'
-base: core22 # the base snap is the execution environment for this snap
+name: mousai
+base: core22 
 adopt-info: mousai
-grade: stable # must be 'stable' to release into candidate/stable channels
-confinement: strict # use 'strict' once you have the right plugs and slots
+grade: stable 
+confinement: strict 
+license: GPL-3.0
+source-code: https://github.com/SeaDve/Mousai
+website: https://github.com/soumyaDghosh/mousai-snap
+issues: https://github.com/soumyaDghosh/mousai-snap/issues
 
 architectures:
   - build-on: amd64
