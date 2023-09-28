@@ -59,6 +59,12 @@ parts:
     prime:
       - -snap/mousai
     parse-info: [ usr/share/metainfo/io.github.seadve.Mousai.metainfo.xml ]
+  deps:
+    plugin: nil
+    stage-packages:
+      - gstreamer1.0-plugins-bad
+    prime:
+      - -usr/share
 
 
 slots:
