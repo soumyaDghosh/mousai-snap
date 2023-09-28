@@ -34,7 +34,6 @@ parts:
       echo 'Skip Prime'
   mousai:
     after: [ rustup ]
-    # See 'snapcraft plugins'
     plugin: meson
     source: https://github.com/SeaDve/Mousai.git
     source-tag: 'v0.7.5'
