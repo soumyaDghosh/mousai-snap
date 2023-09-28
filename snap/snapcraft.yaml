@@ -57,7 +57,7 @@ parts:
     build-packages:
       - libssl-dev
       - libgstreamer1.0-dev
-      -	libgstreamer-plugins-base1.0-dev
+      - libgstreamer-plugins-base1.0-dev
       - libgstreamer-plugins-bad1.0-dev
     organize:
       snap/mousai/current: .
