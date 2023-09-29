@@ -68,6 +68,7 @@ parts:
     plugin: nil
     stage-packages:
       - gstreamer1.0-plugins-bad
+      - gstreamer1.0-libav
     prime:
       - usr/lib/*/gstreamer-1.0/libgstaccurip.so
       - usr/lib/*/gstreamer-1.0/libgstadpcmdec.so
@@ -205,6 +206,7 @@ parts:
       - usr/lib/*/gstreamer-1.0/libgsty4mdec.so
       - usr/lib/*/gstreamer-1.0/libgstzbar.so
       - usr/lib/*/gstreamer-1.0/libgstzxing.so
+      - usr/lib/*/gstreamer-1.0/libgstlibav.so
 
 slots:
   mousai:
