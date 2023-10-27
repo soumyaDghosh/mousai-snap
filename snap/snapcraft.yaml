@@ -208,6 +208,14 @@ parts:
       - usr/lib/*/gstreamer-1.0/libgstzxing.so
       - usr/lib/*/gstreamer-1.0/libgstlibav.so
 
+
+plugs:
+  ffmpeg-2204:
+    interface: content
+    target: ffmpeg-platform
+    default-provider: ffmpeg-2204
+
+
 slots:
   mousai:
     interface: dbus
@@ -216,13 +224,17 @@ slots:
   mousai-mpris:
     interface: mpris
     name: Mousai
+
+
 apps:
   mousai:
     command: usr/bin/mousai
     extensions: [ gnome ]
     common-id: io.github.seadve.Mousai
+    environment:
+      PATH: $SNAP/ffmpeg-platform/usr/bin:$PATH
+      LD_LIBRARY_PATH: $SNAP/ffmpeg-platform/usr/lib/$CRAFT_ARCH_TRIPLET:$LD_LIBRARY_PATH:$GI_TYPELIB_PATH:$GST_PLUGIN_PATH:$LIBGL_DRIVERS_PATH
     plugs:
-      - home
       - network
       - network-bind
       - network-status
