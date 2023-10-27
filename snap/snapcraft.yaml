@@ -59,30 +59,29 @@ parts:
       - libgstreamer1.0-dev
       - libgstreamer-plugins-base1.0-dev
       - libgstreamer-plugins-bad1.0-dev
+    stage-packages:
+      - gstreamer1.0-vaapi 
+      - gstreamer1.0-plugins-ugly
+      - gstreamer1.0-gl
     organize:
       snap/mousai/current: .
     prime:
       - -snap/mousai
     parse-info: [ usr/share/metainfo/io.github.seadve.Mousai.metainfo.xml ]
-  deps:
+  cleanup:
+    after:
+      - mousai
+      - rustup
     plugin: nil
     build-snaps:
       - gnome-42-2204
       - core22
-    stage-packages:
-      - gstreamer1.0-plugins-bad
-      - gstreamer1.0-libav
-      - gstreamer1.0-vaapi 
-      - gstreamer1.0-plugins-ugly
-      - gstreamer1.0-gl
+      - ffmpeg-2204
     override-prime: |
       craftctl default
-      for snap in "core22" "gnome-42-2204"; do
-        cd /snap/$snap/current/usr/lib/$CRAFT_ARCH_TRIPLET
-        find . -type f,l -name "*.so*" -exec bash -c "rm -f $CRAFT_PART_INSTALL/usr/lib/$CRAFT_ARCH_TRIPLET/{}*" \;
+      for snap in "core22" "gnome-42-2204" "ffmpeg-2204"; do
+        cd /snap/$snap/current && find . -type f,l -exec rm -f "$CRAFT_PRIME/{}" \;
       done
-    prime:
-      - -usr/share
 
 plugs:
   ffmpeg-2204:
