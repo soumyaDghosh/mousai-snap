@@ -63,12 +63,9 @@ parts:
       - gstreamer1.0-vaapi 
       - gstreamer1.0-plugins-ugly
       - gstreamer1.0-gl
-<<<<<<< HEAD
       - gstreamer1.0-plugins-base-apps
       - gstreamer1.0-tools
-=======
       - gstreamer1.0-plugins-bad
->>>>>>> 1351777 (added gstreamer bad plugins)
     organize:
       snap/mousai/current: .
     prime:
