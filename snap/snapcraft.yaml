@@ -31,8 +31,8 @@ parts:
       for i in `ls $RUSTUP_HOME/bin/`; do
         ln -s ../share/rust/bin/$i $CRAFT_PART_INSTALL/usr/bin/$i
       done
-    override-prime: |
-      echo 'Skip Prime'
+    override-prime: ''
+
   mousai:
     after: [ rustup ]
     plugin: meson
@@ -48,7 +48,9 @@ parts:
     override-pull: |
       craftctl default
       patch -p1 < $CRAFT_PROJECT_DIR/mousai.patch
-      sed -i 's|new(APP_ID,|new("Mousai",|' $CRAFT_PART_SRC/src/player.rs
+      sed -i 's|new(APP_ID,|new("Mousai",|' ${CRAFT_PART_SRC}/src/player.rs
+      sed -i 's|https://github.com/SeaDve/Mousai/issues|https://github.com/soumyaDghosh/mousai-snap/issues|g' ${CRAFT_PART_SRC}/src/about.rs
+      sed -i 's|https://github.com/SeaDve/Mousai/discussions|https://github.com/soumyaDghosh/mousai-snap/issues|g' ${CRAFT_PART_SRC}/src/about.rs
     override-build: |
       craftctl default
       mkdir -p $CRAFT_PART_INSTALL/meta/gui
@@ -61,18 +63,26 @@ parts:
       - libgstreamer1.0-dev
       - libgstreamer-plugins-base1.0-dev
       - libgstreamer-plugins-bad1.0-dev
-    stage-packages:
-      - gstreamer1.0-vaapi
-      - gstreamer1.0-plugins-ugly
-      - gstreamer1.0-plugins-bad
     organize:
       snap/mousai/current: .
     prime:
       - -snap/mousai
     parse-info: [ usr/share/metainfo/io.github.seadve.Mousai.metainfo.xml ]
+
+  deps:
+    after: [mousai]
+    plugin: nil
+    stage-packages:
+      - gstreamer1.0-vaapi
+      - gstreamer1.0-plugins-ugly
+      - gstreamer1.0-plugins-bad
+    prime:
+      - -etc
+      - -lib
+
   cleanup:
     after:
-      - mousai
+      - deps
       - rustup
     plugin: nil
     build-snaps:
