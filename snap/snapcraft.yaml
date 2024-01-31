@@ -9,6 +9,11 @@ website: https://github.com/soumyaDghosh/mousai-snap
 issues: https://github.com/soumyaDghosh/mousai-snap/issues
 compression: lzo
 
+lint:
+  ignore:
+    - classic
+    - library
+
 architectures:
   - build-on: amd64
   - build-on: arm64
@@ -73,8 +78,6 @@ parts:
     after: [mousai]
     plugin: nil
     stage-packages:
-      - gstreamer1.0-vaapi
-      - gstreamer1.0-plugins-ugly
       - gstreamer1.0-plugins-bad
     prime:
       - -etc
