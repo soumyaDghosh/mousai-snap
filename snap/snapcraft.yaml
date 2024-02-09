@@ -82,6 +82,11 @@ parts:
     prime:
       - -etc
       - -lib
+      - -usr/include
+      - -usr/libexec
+      - -usr/lib/s*
+      - -usr/lib/X11
+      - -usr/share
 
   cleanup:
     after:
