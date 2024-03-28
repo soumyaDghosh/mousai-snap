@@ -52,7 +52,6 @@ parts:
       - --prefix=/snap/mousai/current/usr
     override-pull: |
       craftctl default
-      patch -p1 < $CRAFT_PROJECT_DIR/mousai.patch
       sed -i 's|new(APP_ID,|new("Mousai",|' ${CRAFT_PART_SRC}/src/player.rs
       sed -i 's|https://github.com/SeaDve/Mousai/issues|https://github.com/soumyaDghosh/mousai-snap/issues|g' ${CRAFT_PART_SRC}/src/about.rs
       sed -i 's|https://github.com/SeaDve/Mousai/discussions|https://github.com/soumyaDghosh/mousai-snap/issues|g' ${CRAFT_PART_SRC}/src/about.rs
